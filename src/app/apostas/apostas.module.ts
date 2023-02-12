@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ApostasRoutingModule } from './apostas-routing.module';
 import { ApostasComponent } from './apostas/apostas.component';
 
+import { MatTableModule } from '@angular/material/table'
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { ApostasComponent } from './apostas/apostas.component';
   ],
   imports: [
     CommonModule,
-    ApostasRoutingModule
+    ApostasRoutingModule,
+    MatTableModule
   ]
 })
 export class ApostasModule { }
