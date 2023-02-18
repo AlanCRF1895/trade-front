@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Apostas } from '../model/apostas';
+import { ApostasService } from '../services/apostas.service';
 
 @Component({
   selector: 'app-apostas',
@@ -16,8 +17,9 @@ export class ApostasComponent {
   ];
   displayedColumns = ['name','category']
 
-  constructor(){
+  constructor(private apostasService: ApostasService){
     //this.apostas = [];
+    //this.apostasService = this.apostasService.list();
   }
 
   ngOnInit(): void{
