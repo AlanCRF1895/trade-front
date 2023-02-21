@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Apostas } from '../model/apostas';
 import { ApostasService } from '../services/apostas.service';
 
@@ -7,19 +8,15 @@ import { ApostasService } from '../services/apostas.service';
   templateUrl: './apostas.component.html',
   styleUrls: ['./apostas.component.css']
 })
-export class ApostasComponent {
+export class ApostasComponent implements OnInit {
 
-  apostas: Apostas [] = [
-    { _id: "1", name: "Alan", category: "Apostador" },
-    { _id: "2", name: "Flamengo", category: "Mundial" },
-    { _id: "3", name: "Vasco", category: "Lixo" }
-    
-  ];
-  displayedColumns = ['name','category']
+  apostas: Observable<Apostas[]>;  
+  displayedColumns = ['idAposta','competicao','timeMandante','timeVisitante','estrategia','mercado','stake','profitLoss','golFavor','golContra','esporte']
 
   constructor(private apostasService: ApostasService){
-    //this.apostas = [];
-    //this.apostasService = this.apostasService.list();
+    
+    this.apostas = this.apostasService.list();
+
   }
 
   ngOnInit(): void{

@@ -7,10 +7,11 @@ import { HttpClient } from '@angular/common/http'
 })
 export class ApostasService {
 
+  private readonly API = 'http://localhost:8000/listar-apostas';
   constructor(private httpClient: HttpClient) { }
 
-  /*list(): Apostas{
+  list(){
+    return this.httpClient.get<Apostas[]>(this.API);
+  }
 
-    
-  }*/
 }
